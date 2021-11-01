@@ -14,18 +14,13 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.firebasestatusapp.model.User
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-
-// TODO: Need to move this to its own class
-data class User(
-    val displayName: String = "",
-    val emojis: String = ""
-)
 
 class UserViewHolder( itemView: View): RecyclerView.ViewHolder( itemView )
 
@@ -98,7 +93,7 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    inner class EmojiFilter() : InputFilter {
+    inner class EmojiFilter : InputFilter {
         override fun filter(
             source: CharSequence?,
             start: Int,
